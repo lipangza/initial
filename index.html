@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞鱼起始页</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/style.css">
+    <meta name="keywords" content="飞鱼起始页，网址导航，起始页" />
+    <meta name="description" content="一个自由的桌面式起始页，随意拖拉布局。可随意根据自己的职业切换布局。阅读、工具、游戏、社交、音乐、视频等大量组件随意使用。" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="boxMain">
+            <div id="coverBox"></div>
+        </div>
+    </div>
+    <footer class="fyFooter">
+        <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2022010504号-1</a>
+        <a href="javascript:;" onclick="footNoti()">使用帮助</a>
+        <a href="javascript:;" onclick="footNoti()">关于</a>
+        <a href="javascript:;" onclick="footNoti()">组件开发</a>
+        <a href="javascript:;" onclick="footNoti()">BUG提交</a>
+        <a href="javascript:;" onclick="footNoti()">更新</a>
+        <a href="javascript:;" onclick="footNoti()">联系</a>
+    </footer>
+    <!-- 右键菜单 -->
+    <div class="rightBtn whiRightBtn">
+        <div onclick="delThis()">
+            <svg class="top3" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16">
+                <path
+                    d="M202.666667 256h-42.666667a32 32 0 0 1 0-64h704a32 32 0 0 1 0 64H266.666667v565.333333a53.333333 53.333333 0 0 0 53.333333 53.333334h384a53.333333 53.333333 0 0 0 53.333333-53.333334V352a32 32 0 0 1 64 0v469.333333c0 64.8-52.533333 117.333333-117.333333 117.333334H320c-64.8 0-117.333333-52.533333-117.333333-117.333334V256z m224-106.666667a32 32 0 0 1 0-64h170.666666a32 32 0 0 1 0 64H426.666667z m-32 288a32 32 0 0 1 64 0v256a32 32 0 0 1-64 0V437.333333z m170.666666 0a32 32 0 0 1 64 0v256a32 32 0 0 1-64 0V437.333333z"
+                    p-id="1393" fill="#515151"></path>
+            </svg>
+            删除
+        </div>
+        <div class="modelBtn" showModelId="addWebsite">
+            <svg class="top3" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16">
+                <path
+                    d="M512 64C262.4 64 64 262.4 64 512s198.4 448 448 448 448-198.4 448-448-198.4-448-448-448z m0-64c281.6 0 512 230.4 512 512s-230.4 512-512 512-512-230.4-512-512 230.4-512 512-512z m32 480H768c19.2 0 32 12.8 32 32s-12.8 32-32 32H544V768c0 19.2-12.8 32-32 32s-32-12.8-32-32V544H256c-19.2 0-32-12.8-32-32s12.8-32 32-32h224V256c0-19.2 12.8-32 32-32s32 12.8 32 32v224z"
+                    p-id="37033" fill="#515151"></path>
+            </svg>
+            添加网址
+        </div>
+        <div class="modelBtn" showModelId="comList" id="showComs">
+            <svg class="top3" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16">
+                <path
+                    d="M950.6 992H271.3c-18.7 0-33.4-14.7-33.4-33.5V755c-8 5.4-17.4 9.4-26.7 12.1h-1.3c-12 4-25.4 5.4-37.4 5.4C98.8 772.4 40 712.2 40 639.9c0-73.6 60.2-132.6 132.4-132.6 13.4 0 26.7 2.7 40.1 6.7 1.3 0 2.7 1.3 4 1.3 6.7 2.7 13.4 5.4 18.7 8l2.7 1.3V278.4c0-18.7 14.7-33.5 33.4-33.5h217.9l-4-8c-6.7-10.7-12-21.4-14.7-33.5V202c-4-12.1-5.3-25.4-5.3-37.5C465.2 90.9 525.4 32 597.6 32 671.1 32 730 92.3 730 164.6c0 13.4-2.7 26.8-6.7 40.2 0 1.3-1.3 2.7-1.3 4-2.7 6.7-5.3 13.4-8 18.7l-6.7 16.1h243.4c18.7 0 33.4 14.7 33.4 33.5V577c0 10.7-5.3 21.4-14.7 28.1-9.4 6.7-21.4 6.7-32.1 2.7l-57.5-25.4c-1.3 0-1.3-1.3-2.7-1.3-2.7-1.3-6.7-4-10.7-5.4H865c-6.7-2.7-13.4-2.7-20.1-2.7-36.1 0-65.5 29.5-65.5 65.6 0 36.2 29.4 65.6 65.5 65.6 6.7 0 13.4-1.3 18.7-2.7 6.7-1.3 12-5.4 17.4-8 1.3-1.3 2.7-1.3 4-2.7l50.8-24.1c10.7-5.4 22.7-4 32.1 1.3s16 17.4 16 28.1v262.4c0.1 18.8-14.6 33.5-33.3 33.5z m-645.9-66.9h612.4V751h-1.3c-10.7 6.7-21.4 12.1-33.4 16.1H881c-12 4-25.4 5.4-37.4 5.4-73.5 0-132.4-60.3-132.4-132.6 0-73.6 60.2-132.6 132.4-132.6 13.4 0 26.7 2.7 40.1 6.7 1.3 0 2.7 1.3 4 1.3 6.7 2.7 13.4 5.4 18.7 8l9.4 4V313.2H655.1c-10.7 0-21.4-5.4-28.1-14.7-6.7-9.4-6.7-21.4-2.7-32.1l28.1-64.3c0-1.3 1.3-1.3 1.3-2.7 1.3-2.7 4-6.7 5.3-10.7v-1.3c2.7-6.7 2.7-13.4 2.7-20.1 0-36.2-29.4-65.6-65.5-65.6s-65.5 29.5-65.5 65.6c0 6.7 1.3 13.4 2.7 18.7 1.3 6.7 5.3 12.1 8 17.4 1.3 1.3 1.3 2.7 2.7 4l26.7 57.6c5.3 10.7 4 22.8-1.3 32.1-5.3 9.4-17.4 16.1-28.1 16.1H304.7v262.4c0 10.7-5.3 21.4-14.7 28.1s-21.4 6.7-32.1 2.7l-50.8-22.8c-1.3 0-1.3-1.3-2.7-1.3-2.7-1.3-6.7-4-10.7-5.4h-1.3c-6.7-2.7-13.4-2.7-20.1-2.7-36.1 0-65.5 29.5-65.5 65.6 0 36.2 29.4 65.6 65.5 65.6 6.7 0 13.4-1.3 18.7-2.7 6.7-1.3 12-5.4 17.4-8 1.3-1.3 2.7-1.3 4-2.7l44.1-21.4c10.7-5.4 22.7-4 32.1 1.3 9.4 6.7 16 17.4 16 28.1v225.1h0.1z"
+                    p-id="1400" fill="#515151"></path>
+            </svg>
+            组件库
+        </div>
+        <div class="modelBtn" showModelId="defaultLayout" id="layBtn">
+            <svg class="top3" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16">
+                <path
+                    d="M0 0v256h1024V0z m960 192H64V64h896zM0 1024h512V320H0z m64-640h384v576H64zM576 576h448v-256H576z m64-192h320v128H640zM576 1024h448V640H576z m64-320h320v256H640z"
+                    fill="#515151" p-id="19438"></path>
+            </svg>
+            布局库
+        </div>
+        <div class="modelBtn" showModelId="mainBg" id="bgBtn">
+            <svg class="top3" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16">
+                <path
+                    d="M928 896H96a32 32 0 0 1-32-32V160a32 32 0 0 1 32-32h832a32 32 0 0 1 32 32v116.864a32 32 0 1 1-64 0V192H128v640h768V468.544l-206.336 244.736a31.968 31.968 0 0 1-44.896 4l-196.064-162.752-194.656 180.224a31.936 31.936 0 1 1-43.456-46.944l215.232-199.296a32.032 32.032 0 0 1 42.176-1.152l193.216 160.384 242.336-287.456a32.128 32.128 0 0 1 35.424-9.44c12.608 4.608 21.024 16.64 21.024 30.08V864a32 32 0 0 1-32 32z"
+                    p-id="20529" fill="#515151"></path>
+                <path
+                    d="M304 480C242.24 480 192 429.76 192 368S242.24 256 304 256 416 306.24 416 368 365.76 480 304 480z m0-160c-26.464 0-48 21.536-48 48S277.536 416 304 416s48-21.536 48-48-21.536-48-48-48z"
+                    p-id="20530" fill="#515151"></path>
+            </svg>
+            壁纸库
+        </div>
+        <div class="modelBtn" showModelId="setTab">
+            <svg class="top3" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16">
+                <path
+                    d="M790.08 718.08l-138.112 119.232V718.08h138.112zM198.848 132.992h627.328v516.16H617.088a34.56 34.56 0 0 0-34.816 34.432v206.528H198.848V132.992z m662.208-68.8H164.032a34.56 34.56 0 0 0-34.816 34.432v825.92a34.56 34.56 0 0 0 34.816 34.432h453.056l278.784-240.896V98.624a34.56 34.56 0 0 0-34.816-34.432z"
+                    p-id="23166" fill="#515151"></path>
+            </svg>
+            设起始页
+        </div>
+    </div>
+    <!-- 公共模态框 -->
+    <div id="bodyCover"></div>
+    <div id="comList" class="feiyuModel" style="width: 800px;">
+        <header style="margin-bottom: 0;padding-bottom: 0;border-bottom: none;">
+            <nav class="comNav">
+                <div class="comNavActive">尝鲜</div>
+                <div>阅读</div>
+                <div>工具</div>
+                <div>游戏</div>
+                <div>社交</div>
+                <div>音乐</div>
+                <div>视频</div>
+                <div>摆件</div>
+                <div>其他</div>
+            </nav>
+        </header>
+        <section>
+            <div class="comCon">Loding...</div>
+        </section>
+        <footer>
+            <button class="fyBtn fyBtnPrimary" onclick="closeModel()">关闭</button>
+        </footer>
+    </div>
+    <!-- 背景 -->
+    <div id="mainBg" class="feiyuModel" style="width: 800px;">
+        <header>选择背景图片</header>
+        <section>
+            <div class="bgList"></div>
+        </section>
+        <footer>
+            <button class="fyBtn fyBtnFix" onclick="closeModel()">确定</button>
+            <button class="fyBtn fyBtnPrimary" onclick="closeModel()">关闭</button>
+        </footer>
+    </div>
+    <!-- 添加网址 -->
+    <div id="addWebsite" class="feiyuModel">
+        <header>快捷添加网站</header>
+        <section style="font-size:14px">
+            网址：<input type="url" id="websiteUrl" class="fyInput" placeholder="请输入网址"> <br /><br />
+            名称：<input type="text" id="websiteName" class="fyInput" placeholder="输入网站名"> <br /><br />
+            图标：<input type="checkbox" id="checkIco" checked="checked"> 获取网站官方图标 <br /><br />
+            默认自动获取官方图标，获取失败将生成本地图标。
+        </section>
+        <p style="color: brown;font-size:13px;margin-bottom:0;">***添加后显示到页面顶部***</p>
+        <footer>
+            <button class="fyBtn fyBtnFix" id="addWebsiteBtn">确定</button>
+            <button class="fyBtn fyBtnPrimary" onclick="closeModel()">取消</button>
+        </footer>
+    </div>
+    <!-- 布局 -->
+    <div id="defaultLayout" class="feiyuModel" style="width: 800px;">
+        <section style="max-height:500px;">
+            <div class="layList"></div>
+        </section>
+        <footer>
+            <button class="fyBtn fyBtnPrimary" onclick="closeModel()">关闭</button>
+        </footer>
+    </div>
+    <!-- 起始页 -->
+    <div id="setTab" class="feiyuModel" style="width: 500px;user-select: text;">
+        <section>
+            <h4>谷歌浏览器:</h4>
+            <p>1.地址栏输入：chrome://settings/onStartup</p>
+            <p>2.在 "打开特定网页或一组网页" 点击 "添加新网页" </p>
+            <p>3.输入：www.1mmk.com</p>
+            <h4>Edge:</h4>
+            <p>1.地址栏输入：edge://settings/startHomeNTP</p>
+            <p>2.在 "Microsoft Edge 启动时" "打开以下页面" 点击 " 添加新页面"</p>
+            <p>3.输入：www.1mmk.com</p>
+            <h4>其他浏览器:</h4>
+            <p>1.浏览器都能设置起始页，一般在 "设置或偏好选项" "主页设置或启动时" 设置</p>
+            <p>2.推荐使用谷歌浏览器或最新版Edge</p>
+        </section>
+        <footer>
+            <button class="fyBtn fyBtnPrimary" onclick="closeModel()">关闭</button>
+        </footer>
+    </div>
+    <script src="./js/defaultLayout.js"></script>
+    <script src="./js/public.js"></script>
+    <script src="./js/main.js"></script>
+    <!-- 统计 -->
+    <script>
+        !function (p) { "use strict"; !function (t) { var s = window, e = document, i = p, c = "".concat("https:" === e.location.protocol ? "https://" : "http://", "sdk.51.la/js-sdk-pro.min.js"), n = e.createElement("script"), r = e.getElementsByTagName("script")[0]; n.type = "text/javascript", n.setAttribute("charset", "UTF-8"), n.async = !0, n.src = c, n.id = "LA_COLLECT", i.d = n; var o = function () { s.LA.ids.push(i) }; s.LA ? s.LA.ids && o() : (s.LA = p, s.LA.ids = [], o()), r.parentNode.insertBefore(n, r) }() }({ id: "JhIQEk0vA2nbsGZs", ck: "JhIQEk0vA2nbsGZs" });
+    </script>
+</body>
+
+</html>

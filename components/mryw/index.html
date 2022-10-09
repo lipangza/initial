@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            padding: 5px 10px;
+        }
+
+        .main {
+            box-sizing: border-box;
+            padding: 15px 10px 15px 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, .1);
+        }
+
+        .content {
+            height: 330px;
+            overflow-y: auto;
+            font-size: 15px;
+            color: #fff;
+            text-shadow: 2px 2px 5px #333;
+            padding-right: 10px;
+        }
+
+        .content::-webkit-scrollbar {
+            width: 3px;
+            background-color: rgba(255, 255, 255, .1);
+        }
+
+        .content::-webkit-scrollbar-thumb {
+            width: 3px;
+            background-color: rgba(255, 255, 255, .3);
+        }
+
+        .content>h2 {
+            font-size: 21px;
+            font-weight: normal;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: lightblue;
+        }
+
+        .content>span:nth-child(2){
+            color: #eee;
+            font-size:13px
+        }
+
+        .content>p:nth-child(3) {
+            margin-top: 10px;
+        }
+
+        .content>p {
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 30px;
+        }
+
+        #loadBtn {
+            display: block;
+            height: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <span id="loadBtn">Loading...</span>
+        </div>
+    </div>
+
+    <script>
+        window.onload=function(){
+            const content = document.querySelector('.content');
+            const xx = new FormData()
+            xx.append('token', 'NLjALj7ibCvir48D')
+            fetch('http://api.1mmk.com/getMryw', { method: 'get'}).then(value => {
+                return value.json()
+            }, err => {
+                content.innerHTML = '调用接口失败请联系管理员！'
+            }).then(value => {
+                content.innerHTML = `<h2>${value.title}</h2><span>作者：${value.author}</span>${value.content}`
+            })
+        }
+    </script>
+</body>
+
+</html>

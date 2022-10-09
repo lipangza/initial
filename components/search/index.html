@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            border: none;
+            transition: .3s;
+        }
+
+        .main {
+            height: 100vh;
+            border-radius: 10px;
+        }
+
+        #search {
+            display: flex;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            position: relative;
+        }
+
+        #search:hover .clearValue{
+            display: block;
+        }
+
+        #search::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 460px;
+            height: 44px;
+            top: 10px;
+            left: 40px;
+            background-color: #FFF;
+            z-index: 1;
+        }
+
+        .searchValue {
+            flex: 1;
+            box-sizing: border-box;
+            border-right: none;
+            font-size: 15px;
+            height: 44px;
+            background-color: #fff;
+            z-index: 2;
+        }
+
+        .searchBtn {
+            width: 80px;
+            background-color: #fff;
+            border-radius: 0 20px 20px 0;
+            color: aqua;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .searchIco {
+            width: 60px;
+            background-color: #fff;
+            border-radius: 22px 0 0 22px;
+            height: 44px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .searchIco>img {
+            width: 28px;
+            height: 28px;
+            border-radius: 10px;
+            margin-top: 8px;
+        }
+
+        #searchChannel {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        #searchChannel>div {
+            width: 32px;
+            height: 32px;
+            padding: 1px;
+            margin-right: 3px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        #searchChannel>div:hover {
+            transform: scale(1.2);
+        }
+
+        #searchChannel>div>img {
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .wds {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 57px;
+            display: flex;
+            flex-flow: row wrap;
+            background-color: rgba(255, 255, 255, .9);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .wds>a {
+            line-height: 23.3px;
+            width: 33.33%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            box-sizing: border-box;
+            padding: 0 15px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .wds>a:hover {
+            text-indent: 10px;
+        }
+
+        .clearValue {
+            color: #333;
+            width: 16px;
+            z-index: 2;
+            background-color: #fff;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div id="search">
+            <div class="searchIco">
+                <img src="./img/baidu.png" alt="搜索" />
+            </div>
+            <input type="text" autoComplete="off" class="searchValue" id="searchValue" placeholder="请输入内容">
+            <button class="clearValue">
+                <svg t="1664808853525" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="5243" width="16" height="16">
+                    <path
+                        d="M512 1024a512 512 0 1 1 512-512 512.520855 512.520855 0 0 1-512 512z m0-971.914547a459.914547 459.914547 0 1 0 459.914547 459.914547A460.435402 460.435402 0 0 0 512 52.085453z"
+                        p-id="5244" fill="#707070"></path>
+                    <path
+                        d="M660.703967 674.76704a26.042726 26.042726 0 0 1-18.750763-7.812818l-281.001017-286.46999a26.042726 26.042726 0 0 1 0-36.980671 26.042726 26.042726 0 0 1 36.720244 0l281.001018 286.469989a26.042726 26.042726 0 0 1-18.490336 44.272635z"
+                        p-id="5245" fill="#707070"></path>
+                    <path
+                        d="M376.577823 671.641913a26.042726 26.042726 0 0 1-18.490336-7.812818 26.042726 26.042726 0 0 1 0-36.720245l286.46999-281.001017a26.042726 26.042726 0 0 1 36.720244 0 26.042726 26.042726 0 0 1 0 36.980672l-286.46999 281.001017a26.042726 26.042726 0 0 1-18.229908 7.552391z"
+                        p-id="5246" fill="#707070"></path>
+                </svg>
+            </button>
+            <button class="searchBtn" id="searchBtn">
+                <svg t="1660035675905" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="3964" width="23" height="23">
+                    <path
+                        d="M959.9 857.3L745.8 666.9c38.9-58.6 61.6-128.9 61.6-204.4 0-204.3-166.2-370.6-370.6-370.6S66.3 258.2 66.3 462.5s166.2 370.6 370.6 370.6c94.1 0 180.1-35.3 245.6-93.3l213.4 189.7 64-72.2z m-523.1-96.6c-164.4 0-298.2-133.8-298.2-298.2s133.8-298.2 298.2-298.2S735 298.1 735 462.5 601.2 760.7 436.8 760.7z"
+                        p-id="3965" fill="#666"></path>
+                </svg></button>
+        </div>
+        <div id="searchChannel">
+            <div search-data="https://www.baidu.com/s?wd=">
+                <img src="./img/baidu.png" alt="baidu">
+            </div>
+            <div search-data="https://cn.bing.com/search?q=">
+                <img src="./img/bing.png" alt="必应搜索">
+            </div>
+            <div search-data="https://www.google.com/search?q=">
+                <img src="./img/google.png" alt="谷歌搜索">
+            </div>
+            <div search-data="https://www.sogou.com/web?query=">
+                <img src="./img/sougou.png" alt="搜狗搜索">
+            </div>
+            <div search-data="https://fanyi.baidu.com/?aldtype=16047#zh/en/">
+                <img src="./img/baidufanyi.png" alt="baidufanyi">
+            </div>
+            <div search-data="https://www.iconfont.cn/search/index?searchType=icon&q=">
+                <img src="./img/icoFont.png" alt="icoFont">
+            </div>
+            <div search-data="https://store.steampowered.com/search/?term=">
+                <img src="./img/steam.png" alt="steam">
+            </div>
+            <div search-data="https://music.163.com/#/search/m/?s=">
+                <img src="./img/yy.png" alt="yy">
+            </div>
+            <div search-data="https://image.baidu.com/search/index?tn=baiduimage&word=">
+                <img src="./img/baidutupian.png" alt="image">
+            </div>
+            <div search-data="https://search.bilibili.com/all?keyword=">
+                <img src="./img/bilibili.png">
+            </div>
+            <div search-data="https://www.zhihu.com/search?type=content&q=">
+                <img src="./img/zhihu.png" alt="zhihu">
+            </div>
+            <div search-data="https://github.com/search?q=">
+                <img src="./img/github.png" alt="github">
+            </div>
+            <div search-data="https://search.gitee.com/?skin=rec&type=repository&q=">
+                <img src="./img/gitee.png" alt="gitee">
+            </div>
+        </div>
+        <div class="wds"></div>
+    </div>
+
+    <script>
+        const searchValue = document.getElementById('searchValue')
+        const searchIco = document.querySelector('.searchIco > img')
+        let nowSelS = 'baidu'
+        searchValue.focus()
+        const searchChannel = document.querySelectorAll('#searchChannel > div')
+        let nowSel = searchChannel[0]
+        for (let i = 0; i < searchChannel.length; i++) {
+            searchChannel[i].onclick = function () {
+                searchIco.src = this.querySelector('img').src
+                nowSelS = this.querySelector('img').alt
+                nowSel = this
+                searchValue.focus()
+            }
+        }
+
+        const toSearch = () => {
+            if (!searchValue.value.trim()) return
+            window.open(nowSel.getAttribute('search-data') + searchValue.value)
+        }
+
+        document.getElementById('searchBtn').onclick = function () {
+            toSearch()
+        }
+
+        let oldScript = null
+        const wds = document.querySelector('.wds')
+
+        searchValue.addEventListener('keyup', (e) => {
+            if (e.key == 'Enter') {
+                toSearch()
+            }
+            // 删除上个jsonp
+            if (oldScript) {
+                document.body.removeChild(oldScript)
+                oldScript = null
+            }
+            if (!searchValue.value.trim() || nowSelS != 'baidu') {
+                wds.innerHTML = ''
+                return
+            }
+            const onScript = document.createElement('script')
+            onScript.src = `https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${searchValue.value}&cb=aa`
+            oldScript = onScript
+            document.body.appendChild(onScript)
+        })
+
+        function aa(data) {
+            wds.innerHTML = ''
+            data.s.forEach((item, index) => {
+                if (index <= 8) {
+                    wds.innerHTML += `<a href='https://www.baidu.com/s?wd=${item}' target='_blank'>${item}</a>`
+                }
+            })
+        }
+
+        // 清除
+        document.querySelector('.clearValue').addEventListener('click',()=>{
+            searchValue.value=""
+            wds.innerHTML = ''
+            searchValue.focus()
+        })
+    </script>
+</body>
+
+</html>
