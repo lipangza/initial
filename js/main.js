@@ -407,7 +407,7 @@ document.getElementById('layBtn').addEventListener('click', () => {
 layList.addEventListener('click', (e) => {
     const fileName = e.target.getAttribute('file-name')
     if (fileName) {
-        fetch(`../layout/layouts/${fileName}.json`, { method: 'get' }).then(value => {
+        fetch(`https://lipangza.github.io/initial/layout/layouts/${fileName}.json`, { method: 'get' }).then(value => {
             return value.text()
         }).then(value => {
             comArr = JSON.parse(value)

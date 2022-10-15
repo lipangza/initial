@@ -4,7 +4,7 @@
             "name": "推荐",
             "icoUrl": "./img/linkIco/dir.png",
             "url": "javascript:;",
-            "x": 320,
+            "x": 80,
             "y": 320,
             "canDel": false,
             "chid": [
@@ -21,7 +21,7 @@
             "name": "知乎",
             "icoUrl": "./img/linkIco/zhihu.png",
             "url": "https://www.zhihu.com/",
-            "x": 480,
+            "x": 320,
             "y": 400,
             "id": "L-5"
         },
@@ -29,15 +29,31 @@
             "name": "bilibili",
             "icoUrl": "./img/linkIco/bilibili.png",
             "url": "https://www.bilibili.com/",
-            "x": 320,
+            "x": 80,
             "y": 400,
             "id": "L-6"
+        },
+        {
+            "name": "西瓜视频",
+            "icoUrl": "./img/linkIco/xgsp.png",
+            "url": "https://www.ixigua.com/",
+            "x": 400,
+            "y": 400,
+            "id": "L-9"
+        },
+        {
+            "name": "网易云音乐",
+            "icoUrl": "./img/linkIco/wyyyy.png",
+            "url": "https://music.163.com/",
+            "x": 160,
+            "y": 480,
+            "id": "L-10"
         },
         {
             "name": "虎牙直播",
             "icoUrl": "./img/linkIco/hy.png",
             "url": "https://www.huya.com/",
-            "x": 640,
+            "x": 240,
             "y": 400,
             "id": "L-11"
         },
@@ -45,31 +61,47 @@
             "name": "微博",
             "icoUrl": "./img/linkIco/weibo.png",
             "url": "https://weibo.com/",
-            "x": 400,
+            "x": 160,
             "y": 400,
             "id": "L-15"
+        },
+        {
+            "name": "wallhaven",
+            "icoUrl": "./img/linkIco/wallhaven.png",
+            "url": "https://wallhaven.cc/",
+            "x": 560,
+            "y": 400,
+            "id": "L-18"
         },
         {
             "name": "抖音",
             "icoUrl": "./img/linkIco/douyin.png",
             "url": "http://douyin.com/",
-            "x": 800,
-            "y": 400,
+            "x": 80,
+            "y": 480,
             "id": "L-19"
         },
         {
             "name": "豆瓣网",
             "icoUrl": "./img/linkIco/douban.png",
             "url": "http://douban.com/",
-            "x": 720,
+            "x": 480,
             "y": 400,
             "id": "L-25"
+        },
+        {
+            "name": "简书",
+            "icoUrl": "./img/linkIco/jianshu.png",
+            "url": "http://www.jianshu.com/",
+            "x": 240,
+            "y": 480,
+            "id": "L-26"
         },
         {
             "name": "工具",
             "icoUrl": "./img/linkIco/dir.png",
             "url": "javascript:;",
-            "x": 400,
+            "x": 160,
             "y": 320,
             "id": "L-41",
             "chid": [
@@ -108,14 +140,6 @@
                     "x": 560,
                     "y": 480,
                     "id": "L-27"
-                },
-                {
-                    "name": "wallhaven",
-                    "icoUrl": "./img/linkIco/wallhaven.png",
-                    "url": "https://wallhaven.cc/",
-                    "x": 560,
-                    "y": 400,
-                    "id": "L-18"
                 }
             ]
         },
@@ -123,7 +147,7 @@
             "name": "财经",
             "icoUrl": "./img/linkIco/dir.png",
             "url": "javascript:;",
-            "x": 560,
+            "x": 240,
             "y": 320,
             "id": "L-42",
             "chid": [
@@ -169,7 +193,7 @@
             "name": "学习",
             "icoUrl": "./img/linkIco/dir.png",
             "url": "javascript:;",
-            "x": 480,
+            "x": 320,
             "y": 320,
             "id": "L-43",
             "chid": [
@@ -207,7 +231,7 @@
             "name": "游戏",
             "icoUrl": "./img/linkIco/dir.png",
             "url": "javascript:;",
-            "x": 640,
+            "x": 400,
             "y": 320,
             "id": "L-44",
             "chid": [
@@ -245,7 +269,7 @@
             "name": "科技",
             "icoUrl": "./img/linkIco/dir.png",
             "url": "javascript:;",
-            "x": 800,
+            "x": 560,
             "y": 320,
             "id": "L-50",
             "chid": [
@@ -267,7 +291,7 @@
             "name": "娱乐",
             "icoUrl": "./img/linkIco/dir.png",
             "url": "javascript:;",
-            "x": 720,
+            "x": 480,
             "y": 320,
             "id": "L-51",
             "chid": [
@@ -314,51 +338,45 @@
                     "x": 240,
                     "y": 480,
                     "id": "L-21"
-                },
-                {
-                    "name": "西瓜视频",
-                    "icoUrl": "./img/linkIco/xgsp.png",
-                    "url": "https://www.ixigua.com/",
-                    "x": 640,
-                    "y": 560,
-                    "id": "L-9"
-                },
-                {
-                    "name": "简书",
-                    "icoUrl": "./img/linkIco/jianshu.png",
-                    "url": "http://www.jianshu.com/",
-                    "x": 240,
-                    "y": 480,
-                    "id": "L-26"
-                },
-                {
-                    "name": "网易云音乐",
-                    "icoUrl": "./img/linkIco/wyyyy.png",
-                    "url": "https://music.163.com/",
-                    "x": 160,
-                    "y": 480,
-                    "id": "L-10"
                 }
             ]
         },
         {
             "name": "有道云笔记",
-            "id": "L-79",
+            "id": "L-52",
             "icoUrl": "./img/linkIco/youdao.png",
             "url": "http://note.youdao.com/",
-            "x": 560,
-            "y": 400
+            "x": 320,
+            "y": 480
         }
     ],
     "coms": [
         {
             "name": "快捷搜索",
             "url": "./components/search/index.html",
-            "x": 320,
+            "x": 80,
             "y": 160,
             "width": "560",
             "height": "130",
             "id": "C-39"
+        },
+        {
+            "name": "跳动电子时钟",
+            "url": "./components/beatTime/index.html",
+            "id": "C-46",
+            "x": 240,
+            "y": 80,
+            "width": "240",
+            "height": "50"
+        },
+        {
+            "name": "万能嵌入",
+            "url": "./components/iframe/index.html",
+            "id": "C-48",
+            "x": 720,
+            "y": 80,
+            "width": "400",
+            "height": "530"
         }
     ],
     "ad": [
@@ -369,7 +387,7 @@
             "id": "L-10000"
         }
     ],
-    "nowMinId": 79,
+    "nowMinId": 52,
     "bgSrc": "",
     "version": 8,
     "height": "1600"
