@@ -407,7 +407,7 @@ document.getElementById('layBtn').addEventListener('click', () => {
 layList.addEventListener('click', (e) => {
     const fileName = e.target.getAttribute('file-name')
     if (fileName) {
-        fetch(`https://www.1mmk.com/layout/layouts/${fileName}.json`, { method: 'get' }).then(value => {
+        fetch(`../layout/layouts/${fileName}.json`, { method: 'get' }).then(value => {
             return value.text()
         }).then(value => {
             comArr = JSON.parse(value)
