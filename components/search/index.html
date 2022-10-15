@@ -217,7 +217,7 @@
                 <img src="./img/gitee.png" alt="gitee">
             </div>
         </div>
-        <div class="wds"></div>
+        <!-- <div class="wds"></div> -->
     </div>
 
     <script>
@@ -245,41 +245,15 @@
             toSearch()
         }
 
-        let oldScript = null
-        const wds = document.querySelector('.wds')
-
         searchValue.addEventListener('keyup', (e) => {
             if (e.key == 'Enter') {
                 toSearch()
             }
-            // 删除上个jsonp
-            if (oldScript) {
-                document.body.removeChild(oldScript)
-                oldScript = null
-            }
-            if (!searchValue.value.trim() || nowSelS != 'baidu') {
-                wds.innerHTML = ''
-                return
-            }
-            const onScript = document.createElement('script')
-            onScript.src = `https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${searchValue.value}&cb=aa`
-            oldScript = onScript
-            document.body.appendChild(onScript)
         })
-
-        function aa(data) {
-            wds.innerHTML = ''
-            data.s.forEach((item, index) => {
-                if (index <= 8) {
-                    wds.innerHTML += `<a href='https://www.baidu.com/s?wd=${item}' target='_blank'>${item}</a>`
-                }
-            })
-        }
 
         // 清除
         document.querySelector('.clearValue').addEventListener('click',()=>{
             searchValue.value=""
-            wds.innerHTML = ''
             searchValue.focus()
         })
     </script>

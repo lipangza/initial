@@ -1,150 +1,109 @@
-const body = document.body
-let comArr = [];
-const initLayout = () => {
-    const layoutData = JSON.parse(localStorage.getItem('layoutData'))
-    if (layoutData) {
-        // 老用户
-        // if (layoutData.version != components.version) return clearLocal()
-        comArr = layoutData;
-    } else {
-        // 新用户
-        comArr = components
-        comArr.boxUrls.forEach(item => {
-            item.id = 'L-' + createId()
-        })
-        comArr.coms.forEach(item => {
-            item.id = 'C-' + createId()
-        })
-        localStorage.setItem('layoutData', JSON.stringify(components))
-    }
-    // 背景
-    if (comArr.bgSrc) {
-        body.style.background = `url(${comArr.bgSrc}) 0% 0% / cover no-repeat fixed`
-    } else {
-        body.style.background = `#35363A`
-    }
-    // 高度
-    boxMain.style.height = comArr.height + 'px'
-    // 渲染
-    comArr.boxUrls.forEach((item) => {
-        playUp(item, 'boxUrls')
-    })
-    comArr.coms.forEach((item) => {
-        playUp(item, 'coms')
-    })
-}
-initLayout()
-let bgInfo = new GetPos(boxMain) // 主容器位置信息
-const gridArr = [] // 网格
-// 初始化容器网格
-const gridInfo = {
-    row: parseInt(bgInfo.width / 80),
-    col: parseInt(bgInfo.height / 80),
-    countNum: parseInt(bgInfo.width / 80) * parseInt(bgInfo.height / 80)
-}
-for (let i = 0; i < gridInfo.col; i++) {
-    for (let j = 0; j < gridInfo.row; j++) {
-        gridArr.push({
-            x: j * 80,
-            y: i * 80
-        })
-    }
-}
 // 拖拽
-const whiRightBtn = document.querySelector('.whiRightBtn') // 空白处弹窗
+const whiRightBtn = document.querySelector('.whiRightBtn') // 空白处右键
 let scollTop = null;
 let nowOper = null;
-const brforeMovePos = {
-    x: null,
-    y: null
-}
+const moveBeforePos = { x: null, y: null }
 let coverBox = document.getElementById('coverBox')
-// 委托所有movebox
+// 委托
 boxMain.addEventListener('mousedown', (e) => {
+    // 找到需要操作的dom
     e.composedPath().some(item => {
-        if (item.className && item.className.includes('moveBox')) {
+        if (item.className && item.className.includes('moveBox') || item.className && item.className.includes('moveUrls')) {
             nowOper = item
             return true
         } else {
             nowOper = null
         }
     })
-    if (!nowOper) return
-    bgInfo = new GetPos(boxMain) // 防止浏览器大小改变
-    scollTop = document.querySelector('.main').scrollTop
-    if (e.button != 0) return
-    brforeMovePos.x = nowOper.offsetLeft
-    brforeMovePos.y = nowOper.offsetTop
+    if (!nowOper || e.button != 0 || nowOper.parentNode.getAttribute('domType') == 'urlsContainer') return
+    bgInfo = new GetPos(boxMain);
+    moveBeforePos.x = nowOper.offsetLeft
+    moveBeforePos.y = nowOper.offsetTop
+    scollTop = body.scrollTop
+    nowOper.style.zIndex = '998'
     isAddCom = false
-    nowOper.style.transition = 'none'
-    boxMain.onmousemove = null
     boxMain.onmousemove = (ev) => {
-        nowOper.style.zIndex = '998'
+        coverBox.style.display = "block"
+        nowOper.style.transition = 'none'
         nowOper.style.left = ev.pageX - bgInfo.left - e.layerX + 'px'
         nowOper.style.top = ev.pageY - bgInfo.top + scollTop - e.layerY + 'px'
+        // 位置调整
         if (nowOper.offsetLeft <= 0) nowOper.style.left = '0'
         if (nowOper.offsetTop <= 0) nowOper.style.top = '0'
         if (nowOper.offsetLeft >= (bgInfo.width - nowOper.offsetWidth)) nowOper.style.left = bgInfo.width - nowOper.offsetWidth + 'px'
         if (nowOper.offsetTop >= (bgInfo.height - nowOper.offsetHeight)) nowOper.style.top = bgInfo.height - nowOper.offsetHeight + 'px'
-        // 跳转和遮盖优化
-        if (Math.abs(nowOper.offsetTop - brforeMovePos.y) > 2 || Math.abs(nowOper.offsetLeft - brforeMovePos.x) > 2) {
-            // 确定是移动了才给遮盖
-            coverBox.style.zIndex = "999"
-            coverBox.style.display = "block"
-        }
     }
 })
-window.onmouseup = function (e) {
+document.addEventListener('mouseup', (e) => {
+    // 关闭右键
     if (e.button == 0 && whiRightBtn.style.display == "block") {
         setTimeout(() => {
             whiRightBtn.style.display = "none"
         }, 100)
         whiRightBtn.style.animation = 'readyPageRet 0.2s'
     }
+    boxMain.onmousemove = null
     if (!nowOper) return
+    if (nowOper.href == 'javascript:;') lastUrls = nowOper;
     nowOper.style.transition = '0.3s'
-    coverBox.style.zIndex = "0"
     coverBox.style.display = "none"
     nowOper.style.zIndex = '1'
-    nowOper.style.background = "none"
-    boxMain.onmousemove = null
     getNullPos(nowOper)
-}
+    // 弹出网址集
+    if (e.target.tagName == 'BODY') return nowOper = null
+    if (!nowOper || e.button == 2) return
+    if (nowOper.href && nowOper.href == 'javascript:;' && moveBeforePos.x == nowOper.offsetLeft && moveBeforePos.y == nowOper.offsetTop) {
+        bodyCover.style.display = 'block'
+        urlsModel.style.display = 'block'
+        urlsModel.style.animation = 'urls .3s'
+        urlsModel.querySelector('div').innerHTML = ''
+        getItemById(nowOper.getAttribute('comId')).chid?.forEach(item => { playUp(item, 'urls') })
+    }
+})
 // 空白处右键
 document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
+    if (thisModel) return
+    if (nowOper && nowOper.getAttribute('comId') == 'L-1') {
+        return fyNotice('此网址集不可操作')
+    }
     const delBtn = whiRightBtn.querySelector('div')
+    const reNBtn = whiRightBtn.querySelector('div:nth-child(2)')
+    reNBtn.style.display = 'none'
+    delBtn.style.display = 'none'
     if (nowOper) {
         delBtn.style.display = 'block'
-    } else {
-        delBtn.style.display = 'none'
+        if (nowOper?.href == 'javascript:;') {
+            reNBtn.style.display = 'block'
+        }
     }
     whiRightBtn.style.left = e.pageX + 4 + 'px'
     whiRightBtn.style.top = e.pageY + scollTop + 4 + 'px'
     whiRightBtn.style.display = "block"
-    whiRightBtn.style.animation = 'readyPage 0.3s'
+    whiRightBtn.style.animation = 'readyPage 0.2s'
     setTimeout(() => {
         divOverflow(whiRightBtn, document.body)
     }, 150)
 })
+// 关闭所有弹窗
+bodyCover.onclick = function () {
+    if (thisModel) return closeModel()
+    bodyCover.style.display = 'none'
+    urlsModel.style.animation = 'urlsRet .3s'
+    setTimeout(() => {
+        urlsModel.style.display = 'none'
+    }, 200)
+}
 // 右键删除
 const delThis = () => {
-    if (!nowOper) return
-    nowOper.style.animation = 'readyPageRet .2s'
-    setTimeout(() => {
-        boxMain.removeChild(nowOper)
-    }, 100)
-    delCom(nowOper.getAttribute('comId'))
+    delCom(nowOper)
 }
 // 自动寻找最近的空位并存储
 let isAddCom = false
 function getNullPos(dom) {
-    let moveBox = document.getElementsByClassName('moveBox'); // 所有组件
+    let moveBox = document.getElementsByClassName('moveBox');
     // 最近的位置
-    let shortDis = {
-        distance: null,
-        gridPos: null
-    }
+    let shortDis = { distance: null, gridPos: null }
     for (let i = 0; i < gridArr.length; i++) {
         let dis = Math.sqrt(Math.pow(dom.offsetLeft - gridArr[i].x, 2) + Math.pow(dom.offsetTop - gridArr[i].y, 2))
         if ((shortDis.distance == null || dis < shortDis.distance)) {
@@ -152,149 +111,91 @@ function getNullPos(dom) {
             shortDis.gridPos = gridArr[i]
         }
     }
-    // 检测是否和最近的位置碰撞
+    // 移动后的碰撞检测
     let toMove = true
+    let overlap = null
     for (let i = 0; i < moveBox.length; i++) {
         if (isCollision(dom, moveBox[i])) {
             toMove = false
+            overlap = moveBox[i]
         }
     }
     if (toMove) {
+        // 子网址
+        if (nowOper?.parentNode?.getAttribute('domType') == 'urlsContainer') return
+        // 没有碰撞且位置没变，找到空位
         nowOper.style.left = shortDis.gridPos.x + 'px'
         nowOper.style.top = shortDis.gridPos.y + 'px'
-        toSaveLayout(shortDis.gridPos.x, shortDis.gridPos.y);
+        const chanItem = getItemById(nowOper.getAttribute('comId'))
+        chanItem.x = shortDis.gridPos.x
+        chanItem.y = shortDis.gridPos.y
+        localLayout(comArr);
     } else {
+        // 新添加的组件碰撞了
         if (isAddCom) {
-            fyNotice('请将组件放置到空位')
-            delCom(nowOper.getAttribute('comid'))
-            boxMain.removeChild(nowOper)
+            fyNotice('请按住组件,并放置到空位~');
+            delCom(nowOper)
             return
         }
-        nowOper.style.left = brforeMovePos.x + 'px'
-        nowOper.style.top = brforeMovePos.y + 'px'
+        // wuwuw
+        if(dom.parentNode.getAttribute('domType')=='urlsContainer') return
+        // 有一方是组件，或者正在操作的是网址集就退出
+        if (dom.getAttribute('comId').substring(0, 1) == 'C' || overlap.getAttribute('comId').substring(0, 1) == 'C' || (dom.getAttribute('href') && dom.getAttribute('href') == 'javascript:;')) return resPos()
+        // 正在操作的是网址，目标是网址集就放入
+        if (overlap.getAttribute('comId') == 'L-1') {
+            fyNotice('此网址集不可操作');
+            resPos();
+            return
+        }
+        if (overlap.href && overlap.href == 'javascript:;') {
+            const putDom=getItemById(dom.getAttribute('comId'))
+            delete putDom.x
+            delete putDom.y
+            getItemById(overlap.getAttribute('comId')).chid?.push(putDom)
+            delCom(dom)
+            return
+        }
+        // 两边都是网址，生成网址集
+        const newUrls = {
+            "name": "新网址集",
+            "icoUrl": "./img/linkIco/dir.png",
+            "url": "javascript:;",
+            "x": overlap.offsetLeft,
+            "y": overlap.offsetTop,
+            "id": 'L-' + ++nowMinId,
+            "chid": []
+        }
+        const thisItem = [getItemById(dom.getAttribute('comId')), getItemById(overlap.getAttribute('comId'))]
+        thisItem.forEach(item => {
+            delete item.x
+            delete item.y
+            newUrls.chid.push(item)
+        })
+        delCom(dom)
+        delCom(overlap)
+        playUp(newUrls, 'boxUrls', true)
+        comArr.boxUrls.push(newUrls)
+        localLayout(comArr)
     }
 }
-
-// 删除组件存储的数据
-const delCom = (comId) => {
-    if (comId.substring(0, 1) == 'L') {
-        comArr.boxUrls.forEach((item, index) => {
-            if (comId == item.id) {
-                comArr.boxUrls.splice(index, 1)
-            }
-        })
-    } else if (comId.substring(0, 1) == 'C') {
-        comArr.coms.forEach((item, index) => {
-            if (comId == item.id) {
-                comArr.coms.splice(index, 1)
-            }
-        })
-    }
-    localLayout(comArr);
+// 将正在操作的网址放回原位
+const resPos = () => {
+    nowOper.style.left = moveBeforePos.x + 'px'
+    nowOper.style.top = moveBeforePos.y + 'px'
 }
-
-// 存储移动后的数据
-const toSaveLayout = (x, y) => {
-    const typeId = nowOper.getAttribute('comId')
-    if (typeId.substring(0, 1) == 'L') {
-        comArr.boxUrls.forEach((item) => {
-            if (item.id == typeId) {
-                item.x = x
-                item.y = y
-            }
-        })
-    } else if (typeId.substring(0, 1) == 'C') {
-        comArr.coms.forEach((item) => {
-            if (item.id == typeId) {
-                item.x = x
-                item.y = y
-            }
-        })
-    }
-    localLayout(comArr);
-}
-
-// 获取布局信息
-const layList = document.querySelector('.layList')
-document.getElementById('layBtn').addEventListener('click', () => {
-    // 暂时写死
-    layList.innerHTML = `
-        <div class="layItem">
-            <img src="./layout/img/official1.jpg" alt="">
-            <div>
-                <h3>启航</h3>
-                <p>添加了一些常用网站，和一个万能嵌入组件。</p>
-                <div class="layMeta">
-                    <div>推荐,官方,2022/9/19</div>
-                    <div>id:PmTRBh8nCiGB8AU</div>
-                    <button file-name="official1" class="fyBtn fyBtnFix">确定使用</button>
-                </div>
-            </div>
-        </div>
-        <div class="layItem">
-            <img src="./layout/img/official2.jpg" alt="">
-            <div>
-                <h3>极简</h3>
-                <p>极致简化页面内容，仅剩一个快捷搜索。</p>
-                <div class="layMeta">
-                    <div>推荐,官方,2022/9/19</div>
-                    <div>id:UIHjfiiuhePlwij</div>
-                    <button file-name="official2" class="fyBtn fyBtnFix">确定使用</button>
-                </div>
-            </div>
-        </div>
-        <div class="layItem">
-            <img src="./layout/img/official3.jpg" alt="">
-            <div>
-                <h3>简洁</h3>
-                <p>添加了一个快捷搜索和一些常用网站。</p>
-                <div class="layMeta">
-                    <div>推荐,官方,2022/9/19</div>
-                    <div>id:tmsrtgssSERFffc</div>
-                    <button file-name="official3" class="fyBtn fyBtnFix">确定使用</button>
-                </div>
-            </div>
-        </div>
-        <div class="layItem">
-            <img src="./layout/img/official4.jpg" alt="">
-            <div>
-                <h3>前端</h3>
-                <p>包含一个WEB安全色组件和一些常用网址。</p>
-                <div class="layMeta">
-                    <div>推荐,梦岑,2022/9/21</div>
-                    <div>id:gyujhkjshdkjh</div>
-                    <button file-name="official4" class="fyBtn fyBtnFix">确定使用</button>
-                </div>
-            </div>
-        </div>
-        <div class="layItem">
-            <img src="./layout/img/official5.jpg" alt="">
-            <div>
-                <h3>设计</h3>
-                <p>设计师必备，添加一些设计常用网站。</p>
-                <div class="layMeta">
-                    <div>推荐,梦岑,2022/9/21</div>
-                    <div>id:iwuefgliwughflj</div>
-                    <button file-name="official5" class="fyBtn fyBtnFix">确定使用</button>
-                </div>
-            </div>
-        </div>
-    `
-})
-layList.addEventListener('click', (e) => {
-    const fileName = e.target.getAttribute('file-name')
-    if (fileName) {
-        fetch(`http://www.1mmk.com/layout/layouts/${fileName}.json`, { method: 'get' }).then(value => {
-            return value.text()
-        }).then(value => {
-            comArr = JSON.parse(value)
-            localLayout(comArr);
-            window.location.reload()
-        })
-    }
-})
-
 window.addEventListener('load', () => {
+    // 重命名
+    document.querySelector('#reNameBtn').addEventListener('click', () => {
+        const reNameValue = document.querySelector('#reNameValue')
+        if (reNameValue.value.length < 1) return fyNotice('名字不能为空~')
+        const operDomId = lastUrls.getAttribute('comId')
+        getItemById(operDomId).name = reNameValue.value
+        boxMain.removeChild(lastUrls)
+        playUp(getItemById(operDomId), 'boxUrls')
+        localLayout(comArr)
+        reNameValue.value = ''
+        closeModel()
+    })
     // 添加网址
     const addWebsiteBtn = document.getElementById('addWebsiteBtn');
     const websiteUrl = document.getElementById('websiteUrl')
@@ -334,7 +235,7 @@ window.addEventListener('load', () => {
         ico.onload = function () {
             const newLinkInfo = {
                 name: websiteName.value,
-                id: 'L-' + createId(),
+                id: 'L-' + ++nowMinId,
                 icoUrl: ico.src,
                 url: url,
                 x: 0,
@@ -347,7 +248,6 @@ window.addEventListener('load', () => {
             fyNotice('添加成功');
         }
     })
-
     // 组件库
     const showComs = document.getElementById('showComs')
     const comNav = document.querySelector('.comNav')
@@ -372,7 +272,7 @@ window.addEventListener('load', () => {
     showComs.addEventListener('click', () => {
         // 格式化数据，暂时前端区分tag
         if (comsList.length != 0) return
-        fetch('http://api.1mmk.com/getComs', { method: 'get' }).then(value => { return value.json() }).then(async value => {
+        fetch('https://api.1mmk.com/getComs', { method: 'get' }).then(value => { return value.json() }).then(async value => {
             comsList = value
             await value.forEach(item => {
                 let tagsArr = item.tags.split(',')
@@ -392,7 +292,7 @@ window.addEventListener('load', () => {
             const comItem = document.createElement('div')
             comItem.className = 'comItem'
             comItem.setAttribute('data-comid', item.id)
-            comItem.innerHTML = `<img src="http://www.1mmk.com/img/comLogo/${item.imgUrl}" alt="${item.name}"><div class="comMeta"><h2>${item.name}</h2><div class="comInfo"><span>作者：${item.author}</span></div><p>${item.des}</p></div>`
+            comItem.innerHTML = `<img src="https://www.1mmk.com/img/comLogo/${item.imgUrl}" alt="${item.name}"><div class="comMeta"><h2>${item.name}</h2><div class="comInfo"><span>作者：${item.author}</span></div><p>${item.des}</p></div>`
             comCon.appendChild(comItem)
         })
         // 组件拖拉到页面
@@ -405,7 +305,7 @@ window.addEventListener('load', () => {
                     if (item.id == comId) {
                         putCom.name = item.name
                         putCom.url = `./components/${item.id}/index.html`
-                        putCom.id = 'C-' + createId()
+                        putCom.id = 'C-' + ++nowMinId
                         putCom.x = e.pageX - bgInfo.left - (item.width / 2)
                         putCom.y = e.pageY - bgInfo.top - 15
                         putCom.width = item.width
@@ -417,13 +317,13 @@ window.addEventListener('load', () => {
                 playUp(putCom, 'coms', true)
                 nowOper = document.querySelector('.moveBox:last-child')
                 nowOper.style.zIndex = '998'
-                coverBox.style.zIndex = "999"
                 coverBox.style.display = "block"
                 isAddCom = true
                 closeModel()
                 boxMain.onmousemove = (ev) => {
                     nowOper.style.left = ev.pageX - bgInfo.left - (nowOper.offsetWidth / 2) + 'px'
                     nowOper.style.top = ev.pageY - bgInfo.top + scollTop - 15 + 'px'
+                    // 位置调整
                     if (nowOper.offsetLeft <= 0) nowOper.style.left = '0'
                     if (nowOper.offsetTop <= 0) nowOper.style.top = '0'
                     if (nowOper.offsetLeft >= (bgInfo.width - nowOper.offsetWidth)) nowOper.style.left = bgInfo.width - nowOper.offsetWidth + 'px'
@@ -440,7 +340,7 @@ window.addEventListener('load', () => {
     bgBtn.addEventListener('click', () => {
         const bgContent = document.querySelector('#mainBg > section > .bgList')
         bgContent.innerHTML = ""
-        fetch('http://api.1mmk.com/getBg', {
+        fetch('https://api.1mmk.com/getBg', {
             method: 'get'
         }).then(value => {
             return value.json()
@@ -472,4 +372,47 @@ window.addEventListener('load', () => {
         fyNotice("更换背景成功")
     })
 })
-
+// 切换布局冗余代码
+const layList = document.querySelector('.layList')
+document.getElementById('layBtn').addEventListener('click', () => {
+    // 暂时写死
+    layList.innerHTML = `
+        <div class="layItem">
+            <img src="./layout/img/official1.jpg" alt="">
+            <div>
+                <h3>默认</h3>
+                <p>添加了一些常用网站，和一个万能嵌入组件。</p>
+                <div class="layMeta">
+                    <div>推荐,官方,2022/9/19</div>
+                    <div>id:PmTRBh8nCiGB8AU</div>
+                    <button file-name="official1" class="fyBtn fyBtnFix">确定使用</button>
+                </div>
+            </div>
+        </div>
+        <div class="layItem">
+            <img src="./layout/img/official3.jpg" alt="">
+            <div>
+                <h3>简约</h3>
+                <p>仅显示一些常用网站。</p>
+                <div class="layMeta">
+                    <div>推荐,官方,2022/9/19</div>
+                    <div>id:tmsrtgssSERFffc</div>
+                    <button file-name="official3" class="fyBtn fyBtnFix">确定使用</button>
+                </div>
+            </div>
+        </div>
+        <div>敬请期待...</div>
+    `
+})
+layList.addEventListener('click', (e) => {
+    const fileName = e.target.getAttribute('file-name')
+    if (fileName) {
+        fetch(`https://www.1mmk.com/layout/layouts/${fileName}.json`, { method: 'get' }).then(value => {
+            return value.text()
+        }).then(value => {
+            comArr = JSON.parse(value)
+            localLayout(comArr);
+            window.location.reload()
+        })
+    }
+})
