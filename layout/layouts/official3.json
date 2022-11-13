@@ -6,7 +6,7 @@
             "url": "javascript:;",
             "x": 320,
             "y": 320,
-            "canDel": false,
+            "canDel": true,
             "chid": [
                 {
                     "name": "阿里云特价",
