@@ -7,7 +7,7 @@ const components = {
             "url": "javascript:;",
             "x": 80,
             "y": 320,
-            "canDel": false,
+            "canDel": true,
             "chid": [
                 {
                     "name": "阿里云特价",
