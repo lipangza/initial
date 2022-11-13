@@ -64,7 +64,7 @@ document.addEventListener('mouseup', (e) => {
 document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
     if (thisModel) return
-    if (nowOper && nowOper.getAttribute('comId') == 'L-1') {
+    if (nowOper && nowOper.getAttribute('comId') == 'L-0') {
         return fyNotice('此网址集不可操作')
     }
     const delBtn = whiRightBtn.querySelector('div')
@@ -142,7 +142,7 @@ function getNullPos(dom) {
         // 有一方是组件，或者正在操作的是网址集就退出
         if (dom.getAttribute('comId').substring(0, 1) == 'C' || overlap.getAttribute('comId').substring(0, 1) == 'C' || (dom.getAttribute('href') && dom.getAttribute('href') == 'javascript:;')) return resPos()
         // 正在操作的是网址，目标是网址集就放入
-        if (overlap.getAttribute('comId') == 'L-1') {
+        if (overlap.getAttribute('comId') == 'L-0') {
             fyNotice('此网址集不可操作');
             resPos();
             return
