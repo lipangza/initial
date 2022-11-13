@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        body{
+            opacity: .9;
+            padding: 5px 20px;
+        }
+
+        iframe {
+            background-color: rgba(255, 255, 255, .1);
+            width: 360px;
+            height: 490px;
+            margin: 0;
+            padding: 0;
+        }
+
+        footer {
+            height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+            box-sizing: border-box;
+            background-color: #333;
+            margin: 0;
+            display: flex;
+            user-select: none;
+        }
+        select {
+            flex: 1;
+            outline: none;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            box-sizing: border-box;
+            padding: 0 15px;
+            transition:.3s;
+        }
+        select:hover{
+            background-color: rgb(71, 71, 71);
+            cursor: pointer;
+        }
+        #goLast,#re{width:60px;font-size:13px;color:#fff;text-align:center;transition:.3s;cursor: pointer;}
+        footer > div:hover{background-color: rgb(71, 71, 71);}
+    </style>
+</head>
+
+<body>
+    <footer>
+        <div id="re">
+            <svg style="margin-top: 5px;" t="1663473516957" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10323" width="18" height="18"><path d="M512 944.768a368.448 368.448 0 0 1-368-368 48 48 0 0 1 48-48 48 48 0 0 1 48 48A272 272 0 1 0 512 304.768a48 48 0 0 1-48-48 48 48 0 0 1 48-48 368 368 0 0 1 0 736z" fill="#e6e6e6" p-id="10324"></path><path d="M350.976 280.704a32 32 0 0 1 0-47.232l114.816-105.152a32 32 0 0 1 53.632 23.616v209.728a32 32 0 0 1-53.632 23.616z" fill="#e6e6e6" p-id="10325"></path></svg>
+        </div>
+        <div id="goLast" onclick="window.history.go(-1);">
+            <svg style="margin-top: 5px;" t="1663473488059" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10140" width="18" height="18"><path d="M425.25729 510.464l260.954839-248.121806a42.941935 42.941935 0 0 0-59.193806-62.232775L333.757935 478.93471a42.941935 42.941935 0 0 0-0.396387 61.852903L626.621935 826.913032a42.941935 42.941935 0 0 0 59.986581-61.473032L425.25729 510.464z" p-id="10141" fill="#e6e6e6"></path></svg>
+        </div>
+        <select>
+            <option value="start.html">公告</option>
+            <!--<option value="https://www.wesane.com/">游戏</option>-->
+            <option value="https://www.52shuku.vip/">小说</option>
+            <option value="https://m.manmanapp.com/">漫画</option>
+            <option value="https://m.xzw.com/">星座</option>
+            <option value="https://widget-page.qweather.net/h5/index.html?md=3456&bg=1&lc=auto&key=f41c9045441e4b98a824fdb2a7b05f9f&v=_1662039809809">天气</option>
+            <option value="https://www.gongjugou.com/">工具</option>
+            <option value="https://zty.pe/">打字小游戏</option>
+            <option value="https://iamkun.github.io/tower_game/">盖楼小游戏</option>
+            <option value="https://m.liantu.com/">二维码生成</option>
+            <option value="mySet">自定义</option>
+        </select>
+    </footer>
+    <iframe id="iframe" src="start.html" frameborder="0" width="360" height="480"></iframe>
+
+    <script>
+        const iframe = document.querySelector('iframe')
+        const select = document.querySelector('select')
+        select.onchange = function () {
+            if (select.value == 'mySet') {
+                let url = prompt('输入一个手机网站(部分网站会拒绝嵌入)');
+                if(!url || !url.trim()) return
+                if (!url.includes('.')) return alert('请输入正确的网址')
+                if (url.substring(0, 4) != 'http') url = 'http://' + url
+                if (url.charAt(url.length - 1) != '/') url += '/'
+                iframe.src = ""
+                iframe.src = url
+            } else {
+                iframe.src = ""
+                iframe.src = select.value
+            }
+        }
+
+        const re=document.getElementById('re');
+        re.onclick=function(){
+            let url=iframe.src
+            iframe.src=""
+            iframe.src=url
+        }
+
+    </script>
+</body>
+
+</html>

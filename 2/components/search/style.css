@@ -1,0 +1,20 @@
+*{margin:0;padding:0;outline:none;border:none;transition: .3s;}
+.main{height:100vh;border-radius:10px;opacity:.8;}
+#search{display:flex;box-sizing:border-box;width:100%;padding:10px 10px 0 10px;position:relative;}
+.main:hover{opacity: 1;}
+.main:hover .searchBtn > svg{transform: translateX(0);opacity: 1;}
+.main:hover .searchIco>img{transform: translateX(0);opacity: 1;}
+.searchValue{box-sizing:border-box;border-right:none;font-size:15px;height:44px;background-color:#fff;text-align:center;z-index:2;flex:1;}
+.searchBtn{width:60px;background-color:#fff;border-radius:0 20px 20px 0;color:aqua;cursor:pointer;z-index:2}
+.searchBtn > svg{margin-top:2px;transform: translateX(10px);opacity: 0;}
+.searchIco{width:60px;background-color:#fff;border-radius:22px 0 0 22px;height:44px;text-align:center;z-index:2;}
+.searchIco>img{width:28px;height:28px;border-radius:10px;margin-top:8px;transform: translateX(-10px);opacity: 0;}
+#searchChannel{display:flex;flex-flow:row wrap;justify-content:space-around;box-sizing:border-box;padding:20px 10px 10px 10px;width: 100%;}
+#searchChannel>div{width:32px;height:32px;padding:1px;margin-right:3px;cursor:pointer;border-radius:3px;}
+#searchChannel>div:hover{transform:scale(1.2)}
+#searchChannel>div>img{width:32px;height:32px;object-fit:cover;border-radius:7px}
+
+@media screen and (max-width: 550px) {
+    #searchChannel{display: block;}
+    #searchChannel>div{display: inline-block;margin-bottom: 15px;}
+}

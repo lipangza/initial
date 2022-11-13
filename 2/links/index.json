@@ -1,0 +1,731 @@
+[
+    {
+        "name": "小说",
+        "icoUrl": "./img/linkIco/dir.png",
+        "url": "javascript:;",
+        "chid": [
+            {
+                "name": "知轩藏书",
+                "icoUrl": "http://zxcs.me/favicon.ico",
+                "url": "http://zxcs.me/"
+            },
+            {
+                "name": "17k小说",
+                "icoUrl": "https://www.17k.com/favicon.ico",
+                "url": "https://www.17k.com/"
+            },
+            {
+                "name": "起点",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-Q.png",
+                "url": "https://www.qidian.com/"
+            },
+            {
+                "name": "创世中文网",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-Q.png",
+                "url": "https://chuangshi.qq.com/"
+            },
+            {
+                "name": "顶点小说",
+                "icoUrl": "https://www.ddyueshu.com/favicon.ico",
+                "url": "https://www.ddyueshu.com/"
+            },
+            {
+                "name": "纵横小说",
+                "icoUrl": "http://www.zongheng.com/favicon.ico",
+                "url": "http://www.zongheng.com/"
+            },
+            {
+                "name": "读书中",
+                "icoUrl": "https://m.dushuzhong.com/favicon.ico",
+                "url": "https://m.dushuzhong.com/"
+            },
+            {
+                "name": "笔尖中文",
+                "icoUrl": "https://www.xbiquwx.la/favicon.ico",
+                "url": "https://www.xbiquwx.la/"
+            },
+            {
+                "name": "52书库",
+                "icoUrl": "https://www.52shuku.vip/favicon.ico",
+                "url": "https://www.52shuku.vip/"
+            },
+            {
+                "name": "飞卢小说",
+                "icoUrl": "https://faloo.com/favicon.ico",
+                "url": "https://faloo.com/"
+            },
+            {
+                "name": "微信读书",
+                "icoUrl": "https://weread.qq.com/favicon.ico",
+                "url": "https://weread.qq.com/"
+            },
+            {
+                "name": "qq小说",
+                "icoUrl": "https://book.qq.com/favicon.ico",
+                "url": "https://book.qq.com/"
+            }
+        ]
+    },
+    {
+        "name": "摸鱼",
+        "icoUrl": "./img/linkIco/dir.png",
+        "url": "javascript:;",
+        "chid": [
+            {
+                "name": "摸头表情生成器",
+                "icoUrl": "https://benisland.neocities.org/favicon.ico",
+                "url": "https://benisland.neocities.org/"
+            },
+            {
+                "name": "JK格子生成器",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-T.png",
+                "url": "http://www.tartanmaker.com/"
+            },
+            {
+                "name": "AI生成人脸",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-T.png",
+                "url": "https://thispersondoesnotexist.com/"
+            },
+            {
+                "name": "翅膀符号生成器",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-S.png",
+                "url": "https://www.shubang.net/tools/chibang.html"
+            },
+            {
+                "name": "云段子",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-Y.png",
+                "url": "http://www.yduanzi.com/"
+            },
+            {
+                "name": "抽象话生成",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-P.png",
+                "url": "https://cxh.papapoi.com/"
+            },
+            {
+                "name": "狗屁不通文章生成器",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-G.png",
+                "url": "https://suulnnka.github.io/BullshitGenerator/"
+            },
+            {
+                "name": "骂人英文宝典",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-E.png",
+                "url": "https://ergofabulous.org/"
+            },
+            {
+                "name": "在线画鲸鱼",
+                "icoUrl": "https://play-dot-to.com/favicon.ico",
+                "url": "https://play-dot-to.com/"
+            },
+            {
+                "name": "在线养乌龟",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-C.png",
+                "url": "http://www.changshougui.top/"
+            },
+            {
+                "name": "在线喂仓鼠",
+                "icoUrl": "https://hammyhome.com/favicon.ico",
+                "url": "https://hammyhome.com/"
+            },
+            {
+                "name": "画圆圈",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-hz.png",
+                "url": "http://360360.top/"
+            },
+            {
+                "name": "在线喂金鱼",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-F.png",
+                "url": "http://feedgoldfish.top/"
+            },
+            {
+                "name": "人生重开器",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-S.png",
+                "url": "https://liferestart.syaro.io/public/index.html"
+            },
+            {
+                "name": "我的世界在线版",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-M.png",
+                "url": "https://classic.minecraft.net/"
+            },
+            {
+                "name": "emoji词典",
+                "icoUrl": "https://www.emojiall.com/favicon.ico",
+                "url": "https://www.emojiall.com/"
+            },
+            {
+                "name": "MBTI人格测试",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-hz.png",
+                "url": "https://www.16personalities.com/ch"
+            },
+            {
+                "name": "daedalOS",
+                "icoUrl": "https://dustinbrett.com/favicon.ico",
+                "url": "https://dustinbrett.com/"
+            }
+        ]
+    },
+    {
+        "name": "视频",
+        "icoUrl": "./img/linkIco/dir.png",
+        "url": "javascript:;",
+        "chid": [
+            {
+                "name": "腾讯视频",
+                "icoUrl": "https://v.qq.com/favicon.ico",
+                "url": "https://v.qq.com/"
+            },
+            {
+                "name": "bilibili",
+                "icoUrl": "https://www.bilibili.com/favicon.ico",
+                "url": "https://www.bilibili.com/"
+            },
+            {
+                "name": "爱奇艺",
+                "icoUrl": "https://www.iqiyi.com/favicon.ico",
+                "url": "https://www.iqiyi.com/"
+            },
+            {
+                "name": "优酷",
+                "icoUrl": "https://youku.com/favicon.ico",
+                "url": "https://youku.com/"
+            },
+            {
+                "name": "1905",
+                "icoUrl": "https://www.1905.com/favicon.ico",
+                "url": "https://www.1905.com/"
+            },
+            {
+                "name": "片库网",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-P.png",
+                "url": "https://www.pkmp4.com/"
+            },
+            {
+                "name": "美剧天堂",
+                "icoUrl": "https://www.meijutt.net/favicon.ico",
+                "url": "https://www.meijutt.net/"
+            },
+            {
+                "name": "电影天堂",
+                "icoUrl": "https://m.dytt8.net/favicon.ico",
+                "url": "https://m.dytt8.net/"
+            },
+            {
+                "name": "NO视频",
+                "icoUrl": "https://www.novipnoad.com/favicon.ico",
+                "url": "https://www.novipnoad.com/"
+            },
+            {
+                "name": "视中心",
+                "icoUrl": "https://www.ksksl.com/favicon.ico",
+                "url": "https://www.ksksl.com/"
+            },
+            {
+                "name": "cctv",
+                "icoUrl": "https://tv.cctv.com/favicon.ico",
+                "url": "https://tv.cctv.com/"
+            },
+            {
+                "name": "好看视频",
+                "icoUrl": "https://haokan.baidu.com/favicon.ico",
+                "url": "https://haokan.baidu.com/"
+            },
+            {
+                "name": "抖音",
+                "icoUrl": "http://www.douyin.com/favicon.ico",
+                "url": "http://www.douyin.com/"
+            },
+            {
+                "name": "小姐姐视频",
+                "icoUrl": "https://v.nrzj.vip/favicon.ico",
+                "url": "https://v.nrzj.vip/"
+            }
+        ]
+    },
+    {
+        "name": "前端",
+        "icoUrl": "./img/linkIco/dir.png",
+        "url": "javascript:;",
+        "chid": [
+            {
+                "name": "react",
+                "icoUrl": "https://react.docschina.org/favicon.ico",
+                "url": "https://react.docschina.org/"
+            },
+            {
+                "name": "node",
+                "icoUrl": "https://nodejs.org/favicon.ico",
+                "url": "https://nodejs.org/"
+            },
+            {
+                "name": "MDN",
+                "icoUrl": "https://developer.mozilla.org/favicon.ico",
+                "url": "https://developer.mozilla.org/"
+            },
+            {
+                "name": "VUE",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-V.png",
+                "url": "https://cn.vuejs.org/"
+            },
+            {
+                "name": "github",
+                "icoUrl": "https://github.com/favicon.ico",
+                "url": "https://github.com/"
+            },
+            {
+                "name": "掘金",
+                "icoUrl": "https://juejin.cn/favicon.ico",
+                "url": "https://juejin.cn/"
+            },
+            {
+                "name": "jquery",
+                "icoUrl": "https://jquery.com/favicon.ico",
+                "url": "https://jquery.com/"
+            },
+            {
+                "name": "segmentfault",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-S.png",
+                "url": "https://segmentfault.com/"
+            },
+            {
+                "name": "bootcss",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-B.png",
+                "url": "https://www.bootcss.com/"
+            },
+            {
+                "name": "webpack",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-J.png",
+                "url": "https://webpack.js.org/"
+            },
+            {
+                "name": "babeljs",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-B.png",
+                "url": "https://babeljs.io/"
+            },
+            {
+                "name": "iconfont",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-I.png",
+                "url": "https://www.iconfont.cn/"
+            },
+            {
+                "name": "VSCode",
+                "icoUrl": "https://code.visualstudio.com/favicon.ico",
+                "url": "https://code.visualstudio.com/"
+            },
+            {
+                "name": "Vant",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-G.png",
+                "url": "https://vant-ui.github.io/vant/#/zh-CN"
+            },
+            {
+                "name": "naive-ui",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-N.png",
+                "url": "https://www.naiveui.com/"
+            },
+            {
+                "name": "element-ui",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-E.png",
+                "url": "https://element-plus.org/"
+            },
+            {
+                "name": "csdn",
+                "icoUrl": "https://www.csdn.net/favicon.ico",
+                "url": "https://www.csdn.net/"
+            }
+        ]
+    },
+    {
+        "name": "设计",
+        "icoUrl": "./img/linkIco/dir.png",
+        "url": "javascript:;",
+        "chid": [
+            {
+                "name": "freepik",
+                "icoUrl": "https://www.freepik.com/favicon.ico",
+                "url": "https://www.freepik.com/"
+            },
+            {
+                "name": "iconfont",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-I.png",
+                "url": "https://www.iconfont.cn/"
+            },
+            {
+                "name": "摄图网",
+                "icoUrl": "https://699pic.com/favicon.ico",
+                "url": "https://699pic.com/"
+            },
+            {
+                "name": "mastergo",
+                "icoUrl": "https://mastergo.com/favicon.ico",
+                "url": "https://mastergo.com/"
+            },
+            {
+                "name": "字由",
+                "icoUrl": "https://www.hellofont.cn/favicon.ico",
+                "url": "https://www.hellofont.cn/"
+            },
+            {
+                "name": "包图网",
+                "icoUrl": "https://ibaotu.com/favicon.ico",
+                "url": "https://ibaotu.com/"
+            },
+            {
+                "name": "即时设计",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-J.png",
+                "url": "https://js.design/"
+            },
+            {
+                "name": "dribbble",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-D.png",
+                "url": "https://dribbble.com/"
+            },
+            {
+                "name": "花瓣网",
+                "icoUrl": "https://huaban.com/favicon.ico",
+                "url": "https://huaban.com/"
+            },
+            {
+                "name": "wallhaven壁纸",
+                "icoUrl": "https://wallhaven.cc/favicon.ico",
+                "url": "https://wallhaven.cc/"
+            },
+            {
+                "name": "png素材",
+                "icoUrl": "https://pngimg.com/favicon.ico",
+                "url": "https://pngimg.com/"
+            },
+            {
+                "name": "vcg",
+                "icoUrl": "https://www.vcg.com/favicon.ico",
+                "url": "https://www.vcg.com/"
+            },
+            {
+                "name": "站酷网",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-Z.png",
+                "url": "https://www.zcool.com.cn/"
+            },
+            {
+                "name": "ui8",
+                "icoUrl": "https://ui8.net/favicon.ico",
+                "url": "https://ui8.net/"
+            },
+            {
+                "name": "矢量LOGO",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-W.png",
+                "url": "https://worldvectorlogo.com/"
+            },
+            {
+                "name": "字体家",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-Z.png",
+                "url": "https://www.zitijia.com/"
+            },
+            {
+                "name": "字体天下",
+                "icoUrl": "https://www.fonts.net.cn/favicon.ico",
+                "url": "https://www.fonts.net.cn/"
+            },
+            {
+                "name": "awwwards",
+                "icoUrl": "https://www.awwwards.com/favicon.ico",
+                "url": "https://www.awwwards.com/"
+            }
+        ]
+    },
+    {
+        "name": "工具",
+        "icoUrl": "./img/linkIco/dir.png",
+        "url": "javascript:;",
+        "chid": [
+            {
+                "name": "QQ邮箱",
+                "icoUrl": "./img/linkIco/qqyouxiang.png",
+                "url": "https://mail.qq.com/"
+            },
+            {
+                "name": "阿里云盘",
+                "icoUrl": "./img/linkIco/aliyunpan.png",
+                "url": "https://www.aliyundrive.com/"
+            },
+            {
+                "name": "草料二维码",
+                "icoUrl": "./img/linkIco/cailiaoerweima.png",
+                "url": "https://cli.im/"
+            },
+            {
+                "name": "U钙网",
+                "icoUrl": "./img/linkIco/ugai.png",
+                "url": "https://www.uugai.com/"
+            },
+            {
+                "name": "天眼查",
+                "icoUrl": "./img/linkIco/tianyancha.png",
+                "url": "http://tianyancha.com/"
+            }
+        ]
+    },
+    {
+        "name": "财经",
+        "icoUrl": "./img/linkIco/dir.png",
+        "url": "javascript:;",
+        "chid": [
+            {
+                "name": "雪球",
+                "icoUrl": "./img/linkIco/xueqiu.png",
+                "url": "https://xueqiu.com/"
+            },
+            {
+                "name": "东方财富",
+                "icoUrl": "./img/linkIco/dongfangcaifu.png",
+                "url": "https://www.eastmoney.com/"
+            },
+            {
+                "name": "淘股吧",
+                "icoUrl": "./img/linkIco/taoguba.png",
+                "url": "https://www.taoguba.com.cn/"
+            },
+            {
+                "name": "华尔街见闻",
+                "icoUrl": "./img/linkIco/huaerjie.png",
+                "url": "https://wallstreetcn.com/"
+            },
+            {
+                "name": "财联社",
+                "icoUrl": "./img/linkIco/cailians.png",
+                "url": "https://m.cls.cn/"
+            }
+        ]
+    },
+    {
+        "name": "学习",
+        "icoUrl": "./img/linkIco/dir.png",
+        "url": "javascript:;",
+        "chid": [
+            {
+                "name": "腾讯课堂",
+                "icoUrl": "./img/linkIco/txkt.png",
+                "url": "https://ke.qq.com/"
+            },
+            {
+                "name": "wikiHow",
+                "icoUrl": "./img/linkIco/wikiHow.png",
+                "url": "https://zh.wikihow.com/"
+            },
+            {
+                "name": "菜鸟教程",
+                "icoUrl": "./img/linkIco/cainiaojiaoc.png",
+                "url": "https://www.runoob.com/"
+            },
+            {
+                "name": "吾爱破解",
+                "icoUrl": "./img/linkIco/wuaipojie.png",
+                "url": "https://www.52pojie.cn/"
+            }
+        ]
+    },
+    {
+        "name": "游戏",
+        "icoUrl": "./img/linkIco/dir.png",
+        "url": "javascript:;",
+        "chid": [
+            {
+                "name": "免费游戏",
+                "icoUrl": "./img/linkIco/youxi.png",
+                "url": "https://poki.cn/"
+            },
+            {
+                "name": "网易云游戏",
+                "icoUrl": "./img/linkIco/wangyiyunyouxi.png",
+                "url": "https://cg.163.com/"
+            },
+            {
+                "name": "小霸王",
+                "icoUrl": "./img/linkIco/xiaobawang.png",
+                "url": "https://www.yikm.net/"
+            },
+            {
+                "name": "游侠网",
+                "icoUrl": "./img/linkIco/youxia.png",
+                "url": "http://ali213.net/"
+            }
+        ]
+    },
+    {
+        "name": "科技",
+        "icoUrl": "./img/linkIco/dir.png",
+        "url": "javascript:;",
+        "chid": [
+            {
+                "name": "虎嗅网",
+                "icoUrl": "./img/linkIco/huxiu.png",
+                "url": "http://www.huxiu.com/"
+            },
+            {
+                "name": "36Kr",
+                "icoUrl": "./img/linkIco/36k.png",
+                "url": "https://www.36kr.com/"
+            }
+        ]
+    },
+    {
+        "name": "娱乐",
+        "icoUrl": "./img/linkIco/dir.png",
+        "url": "javascript:;",
+        "chid": [
+            {
+                "name": "toonme",
+                "icoUrl": "./img/linkIco/toonme.png",
+                "url": "https://toonme.com/"
+            },
+            {
+                "name": "优酷",
+                "icoUrl": "./img/linkIco/youku.png",
+                "url": "http://youku.com/"
+            },
+            {
+                "name": "斗鱼直播",
+                "icoUrl": "./img/linkIco/douyu.png",
+                "url": "https://www.douyu.com/"
+            },
+            {
+                "name": "茶杯狐",
+                "icoUrl": "./img/linkIco/chabeihu.png",
+                "url": "https://www.cupfox.app/"
+            },
+            {
+                "name": "汽车之家",
+                "icoUrl": "./img/linkIco/qichezhijia.png",
+                "url": "https://www.autohome.com.cn/"
+            },
+            {
+                "name": "今日热榜",
+                "icoUrl": "./img/linkIco/jrrd.png",
+                "url": "https://tophub.today/"
+            },
+            {
+                "name": "bilibili",
+                "icoUrl": "./img/linkIco/bilibili.png",
+                "url": "https://www.bilibili.com/"
+            },
+            {
+                "name": "微博",
+                "icoUrl": "./img/linkIco/weibo.png",
+                "url": "https://weibo.com/"
+            },
+            {
+                "name": "虎牙直播",
+                "icoUrl": "./img/linkIco/hy.png",
+                "url": "https://www.huya.com/"
+            },
+            {
+                "name": "知乎",
+                "icoUrl": "./img/linkIco/zhihu.png",
+                "url": "https://www.zhihu.com/"
+            },
+            {
+                "name": "西瓜视频",
+                "icoUrl": "./img/linkIco/xgsp.png",
+                "url": "https://www.ixigua.com/"
+            },
+            {
+                "name": "豆瓣网",
+                "icoUrl": "./img/linkIco/douban.png",
+                "url": "http://douban.com/"
+            },
+            {
+                "name": "抖音",
+                "icoUrl": "./img/linkIco/douyin.png",
+                "url": "http://douyin.com/"
+            },
+            {
+                "name": "网易云音乐",
+                "icoUrl": "./img/linkIco/wyyyy.png",
+                "url": "https://music.163.com/"
+            }
+        ]
+    },
+    {
+        "name": "国外(墙)",
+        "icoUrl": "./img/linkIco/dir.png",
+        "url": "javascript:;",
+        "chid": [
+            {
+                "name": "google",
+                "icoUrl": "https://www.google.com/favicon.ico",
+                "url": "https://www.google.com/"
+            },
+            {
+                "name": "youtube",
+                "icoUrl": "https://www.youtube.com/favicon.ico",
+                "url": "https://www.youtube.com/"
+            },
+            {
+                "name": "facebook",
+                "icoUrl": "https://www.facebook.com/favicon.ico",
+                "url": "https://www.facebook.com/"
+            },
+            {
+                "name": "twitter",
+                "icoUrl": "https://twitter.com/favicon.ico",
+                "url": "https://twitter.com/"
+            },
+            {
+                "name": "tumblr",
+                "icoUrl": "https://www.tumblr.com/favicon.ico",
+                "url": "https://www.tumblr.com/"
+            },
+            {
+                "name": "amazon",
+                "icoUrl": "http://www.amazon.com/favicon.ico",
+                "url": "http://www.amazon.com/"
+            },
+            {
+                "name": "ebay",
+                "icoUrl": "http://www.ebay.com/favicon.ico",
+                "url": "http://www.ebay.com/"
+            },
+            {
+                "name": "ssense",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-S.png",
+                "url": "http://www.ssense.com/"
+            },
+            {
+                "name": "instagram",
+                "icoUrl": "http://www.instagram.com/favicon.ico",
+                "url": "http://www.instagram.com/"
+            },
+            {
+                "name": "imgur",
+                "icoUrl": "https://www.1mmk.com/img/icos/16gl-I.png",
+                "url": "http://imgur.com/"
+            },
+            {
+                "name": "CNN",
+                "icoUrl": "https://edition.cnn.com/favicon.ico",
+                "url": "https://edition.cnn.com/"
+            },
+            {
+                "name": "msn",
+                "icoUrl": "http://www.msn.com/favicon.ico",
+                "url": "http://www.msn.com/"
+            },
+            {
+                "name": "reddit",
+                "icoUrl": "http://www.reddit.com/favicon.ico",
+                "url": "http://www.reddit.com/"
+            },
+            {
+                "name": "wikipedia",
+                "icoUrl": "http://www.wikipedia.org/favicon.ico",
+                "url": "http://www.wikipedia.org/"
+            },
+            {
+                "name": "linkedin",
+                "icoUrl": "http://www.linkedin.com/favicon.ico",
+                "url": "http://www.linkedin.com/"
+            },
+            {
+                "name": "telegram",
+                "icoUrl": "https://telegram.org/favicon.ico",
+                "url": "https://telegram.org/"
+            }
+        ]
+    }
+]

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div id="search">
+            <div class="searchIco">
+                <img src="./img/baidu.png" alt="搜索引擎" />
+            </div>
+            <input type="text" autoComplete="off" class="searchValue" id="searchValue" placeholder="输入搜索内容">
+            <button class="searchBtn" id="searchBtn">
+                <svg t="1660035675905" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="3964" width="23" height="23">
+                    <path
+                        d="M959.9 857.3L745.8 666.9c38.9-58.6 61.6-128.9 61.6-204.4 0-204.3-166.2-370.6-370.6-370.6S66.3 258.2 66.3 462.5s166.2 370.6 370.6 370.6c94.1 0 180.1-35.3 245.6-93.3l213.4 189.7 64-72.2z m-523.1-96.6c-164.4 0-298.2-133.8-298.2-298.2s133.8-298.2 298.2-298.2S735 298.1 735 462.5 601.2 760.7 436.8 760.7z"
+                        p-id="3965" fill="#666"></path>
+                </svg></button>
+        </div>
+        <div id="searchChannel">
+            <div search-data="https://www.baidu.com/s?wd=">
+                <img src="./img/baidu.png" alt="baidu">
+            </div>
+            <div search-data="https://cn.bing.com/search?q=">
+                <img src="./img/bing.png" alt="必应搜索">
+            </div>
+            <div search-data="https://fanyi.baidu.com/?aldtype=16047#zh/en/">
+                <img src="./img/baidufanyi.png" alt="baidufanyi">
+            </div>
+            <div search-data="https://image.baidu.com/search/index?tn=baiduimage&word=">
+                <img src="./img/baidutupian.png" alt="image">
+            </div>
+            <div search-data="https://www.google.com/search?q=">
+                <img src="./img/google.png" alt="谷歌搜索">
+            </div>
+            <div search-data="https://www.sogou.com/web?query=">
+                <img src="./img/sougou.png" alt="搜狗搜索">
+            </div>
+            <div search-data="https://www.iconfont.cn/search/index?searchType=icon&q=">
+                <img src="./img/icoFont.png" alt="icoFont">
+            </div>
+            <div search-data="https://fsoufsou.com/search?q=">
+                <img src="./img/f.png" alt="fsoufsou">
+            </div>
+            <div search-data="https://music.163.com/#/search/m/?s=">
+                <img src="./img/yy.png" alt="yy">
+            </div>
+            <div search-data="https://search.bilibili.com/all?keyword=">
+                <img src="./img/bilibili.png">
+            </div>
+            <div search-data="https://www.zhihu.com/search?type=content&q=">
+                <img src="./img/zhihu.png" alt="zhihu">
+            </div>
+            <div search-data="https://github.com/search?q=">
+                <img src="./img/github.png" alt="github">
+            </div>
+            <div search-data="https://store.steampowered.com/search/?term=">
+                <img src="./img/steam.png" alt="steam">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const searchValue = document.getElementById('searchValue')
+        const searchIco = document.querySelector('.searchIco > img')
+        let nowSelS = 'baidu'
+        searchValue.focus()
+        const searchChannel = document.querySelectorAll('#searchChannel > div')
+        let nowSel = searchChannel[0]
+        for (let i = 0; i < searchChannel.length; i++) {
+            searchChannel[i].onclick = function () {
+                searchIco.src = this.querySelector('img').src
+                nowSelS = this.querySelector('img').alt
+                nowSel = this
+                searchValue.focus()
+            }
+        }
+        const toSearch = () => {
+            if (!searchValue.value.trim()) return
+            window.open(nowSel.getAttribute('search-data') + searchValue.value)
+            searchValue.value=""
+        }
+        document.getElementById('searchBtn').onclick = function () {
+            toSearch()
+        }
+        searchValue.addEventListener('keyup', (e) => {
+            if (e.key == 'Enter') {
+                toSearch()
+            }
+        })
+    </script>
+</body>
+
+</html>
