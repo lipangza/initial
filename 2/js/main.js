@@ -396,7 +396,7 @@ const showAllUrlsFun = () => {
     let content = document.querySelector('#allUrls > section')
     content.innerHTML = ""
     showModel('allUrls')
-    fetch('https://www.1mmk.com/links/index.json', { method: 'get' }).then(value => value.json()).then(data => {
+    fetch('https://lipangza.github.io/initial/2/links/index.json', { method: 'get' }).then(value => value.json()).then(data => {
         urlsListData = data
         urlsListData.forEach(item => {
             content.innerHTML += `<a href="javascript:;" class="boxUrl" onclick="selThisUrls(this)"><img src="./img/linkIco/dir.png"><span>${item.name}</span></a>`
